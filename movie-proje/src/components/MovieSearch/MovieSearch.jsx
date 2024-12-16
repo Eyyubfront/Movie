@@ -17,7 +17,7 @@ function MovieSearch({ setBasketActive, basket, setBasket }) {
     axios
       .get(`https://api.themoviedb.org/3/discover/movie`, {
         headers: {
-          Authorization: "Bearer YOUR_API_KEY",
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmJiNzI2MTUyMDViNGQyOWM4ZDQ2ZDczYTQ5OGM4NCIsIm5iZiI6MTczNDM3MTEzOS41OTUsInN1YiI6IjY3NjA2NzQzNjczZmZlYTBmMjdkZWQ2ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ahWXmcS9DfT1hiiVjU31rVK1Cv3YV8m2gExTebbPZYI",
           Accept: "application/json",
         },
       })
