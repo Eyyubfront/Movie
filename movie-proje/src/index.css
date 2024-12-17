@@ -45,6 +45,10 @@
   object-fit: cover;
   border-bottom: 4px solid #f1f1f1;
 }
+.basket_img{
+  width: 250px;
+  height: 220px;
+}
 
 .movie-card__details {
   padding: 20px;
@@ -134,7 +138,7 @@
   padding: 12px 18px;
   font-size: 1rem;
   color: #fff;
-  background-color: #007bff;
+  background-color: burlywood;
   border: none;
   border-radius: 8px;
   cursor: pointer;

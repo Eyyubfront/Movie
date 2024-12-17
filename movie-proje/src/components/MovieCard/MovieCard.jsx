@@ -1,6 +1,6 @@
 import React from "react";
 
-function MovieCard({ movie, setList, list }) {
+function MovieCard({ movie, setList }) {
   return (
     <div className="movie-card">
       <img
@@ -17,8 +17,9 @@ function MovieCard({ movie, setList, list }) {
           className="movie-card__button"
           onClick={() => {
             setList((prev) => {
+  
               if (!prev.some((item) => item.id === movie.id)) {
-                return [...prev, movie];
+                return [...prev, movie]; 
               }
               alert("Already in the list");
               return prev;

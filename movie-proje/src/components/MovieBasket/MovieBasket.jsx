@@ -20,6 +20,7 @@ function MovieBasket({ basket, setBasketActive }) {
                       <img
                         src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
                         alt={item.title}
+                        className="basket_img"
                       />
                     </Link>
                     <div className="movie-details">

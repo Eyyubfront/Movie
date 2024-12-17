@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { FaBasketShopping } from "react-icons/fa6";
 import { FaSave } from "react-icons/fa";
-function SelectedMoviesList({ list, setList, setBasketActive, basket, setBasket }) {
+
+function SelectedMoviesList({ 
+  list, 
+  setList, 
+  setBasketActive, 
+  basket, 
+  setBasket }) {
   const [listName, setListName] = useState("");
 
   const removeFromList = (id) => {
@@ -13,10 +19,10 @@ function SelectedMoviesList({ list, setList, setBasketActive, basket, setBasket 
     setBasket({
       ...basket,
       title: listName,
-      orders: [...list],
+      orders: [...list], 
     });
-    setList([]);
-    setListName("");
+    setList([]); 
+    setListName(""); 
   };
 
   return (
@@ -38,7 +44,7 @@ function SelectedMoviesList({ list, setList, setBasketActive, basket, setBasket 
       ))}
       <div className="buttons-container">
         <button
-          onClick={() => { addToBasket(); }}
+          onClick={addToBasket}
           disabled={listName.length === 0 || list.length === 0}
           className="save-btn"
         >

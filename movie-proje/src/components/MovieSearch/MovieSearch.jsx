@@ -8,14 +8,24 @@ function MovieSearch({ setBasketActive, basket, setBasket }) {
   const [searchParams, setSearchParams] = useState("");
   const [movies, setMovies] = useState([]);
   const [list, setList] = useState([]);
-
+  const url = `https://api.themoviedb.org/3/discover/movie`;
+  const searchUrl =
+    "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US";
   const getSearch = (search) => {
     setSearchParams(search);
+    axios
+      .get(search === "" ? url : `${searchUrl}&query=${search}`,{ headers: {
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmJiNzI2MTUyMDViNGQyOWM4ZDQ2ZDczYTQ5OGM4NCIsIm5iZiI6MTczNDM3MTEzOS41OTUsInN1YiI6IjY3NjA2NzQzNjczZmZlYTBmMjdkZWQ2ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ahWXmcS9DfT1hiiVjU31rVK1Cv3YV8m2gExTebbPZYI",
+        Accept: "application/json",
+      },})
+      .then((res) => {
+        setMovies(res.data.results);
+      });
   };
 
   useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/discover/movie`, {
+      .get(url, {
         headers: {
           Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmJiNzI2MTUyMDViNGQyOWM4ZDQ2ZDczYTQ5OGM4NCIsIm5iZiI6MTczNDM3MTEzOS41OTUsInN1YiI6IjY3NjA2NzQzNjczZmZlYTBmMjdkZWQ2ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ahWXmcS9DfT1hiiVjU31rVK1Cv3YV8m2gExTebbPZYI",
           Accept: "application/json",
@@ -26,7 +36,7 @@ function MovieSearch({ setBasketActive, basket, setBasket }) {
 
   return (
     <div className="movie-search-container">
-        <div className="movie-search-right">
+      <div className="movie-search-right">
         <SelectedMoviesList
           basket={basket}
           setBasket={setBasket}
@@ -47,7 +57,6 @@ function MovieSearch({ setBasketActive, basket, setBasket }) {
             ))}
         </div>
       </div>
-    
     </div>
   );
 }
