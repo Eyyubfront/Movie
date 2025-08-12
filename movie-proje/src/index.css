@@ -530,6 +530,9 @@ label {
   .burger-container {
     display: none;
   }
+  .explore_button {
+    right: 38%;
+  }
 }
 @media (max-width: 576px) {
   .header_nav {
@@ -550,6 +553,9 @@ label {
   }
   .footer_riht h2 {
     font-size: 20px;
+  }
+  .explore_button {
+    right: 38%;
   }
 }
 
